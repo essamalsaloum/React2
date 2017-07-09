@@ -1,0 +1,12 @@
+@import "../variables";
+
+.TextField {
+	display: block;
+	margin-top: $padding-m;
+}
+
+.TextField-input {
+ 	width: 100%;
+	padding: 8px 5px;
+	margin-top: $padding-xs;
+}

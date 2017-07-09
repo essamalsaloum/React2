@@ -9,7 +9,7 @@ class App extends Component {
 
   componentWillMount() {
     this.subscription = store.subscribe(state => {
-      this.setState({counter: state.counter})
+      this.setState(state)
     })
   }
 
@@ -27,11 +27,16 @@ class App extends Component {
         </div>
 
         <div className="App-generateButton">
-          <Button/>
+          <Button label="GENERATE" onClick={this.onGenerateClick.bind(this)}/>
         </div>
       </div>
     )
   }
+
+  onGenerateClick() {
+    alert('Generate')
+  }
+
 }
 
 export default App
