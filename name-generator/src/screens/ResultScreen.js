@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button} from '.'
+import {Button} from '../components'
 import store from '../store'
 import * as actions from '../actions'
 import './ResultScreen.css'

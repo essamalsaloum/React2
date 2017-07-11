@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {Logo, FormScreen, GeneratingScreen, ResultScreen} from '.'
-import store from '../store'
+import {Logo} from './components'
+import {FormScreen, GeneratingScreen, ResultScreen} from './screens'
+import store from './store'
 import './App.css'
 
 export default class App extends Component {

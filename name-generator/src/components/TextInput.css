@@ -1,0 +1,8 @@
+.TextInput {
+  height: 48px;
+  width: 100%;
+  padding: 8px;
+  background: white;
+  color: #1A6FD1;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0; }

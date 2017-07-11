@@ -1,0 +1,13 @@
+@import "../variables";
+
+.TextInput {
+	height:  48px;
+	width:   100%;
+	padding: $padding-input;
+
+	background: $bg-color-input;
+	color:      $fg-color-input;
+
+	border:     none;
+	box-shadow: $shadow-input;
+}

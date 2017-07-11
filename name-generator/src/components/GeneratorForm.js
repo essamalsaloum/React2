@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {TextInput, RadioButtonList} from '.'
 import './GeneratorForm.css'
 import store from '../store'
 
@@ -26,10 +27,21 @@ export default class Form extends React.Component {
 			<div className={`GeneratorForm ${className || ''}`}>
 
 				<FormRow label="1. What is your own name?">
-					<input
-						type="text"
+					<TextInput
 						value={this.state.ownName || ''}
-						onChange={e => { this.update({ownName: e.target.value}) }}
+						onChange={value => { this.update({ownName: value}) }}
+					/>
+				</FormRow>
+
+				<FormRow label="2. Choose a theme">
+					<RadioButtonList
+						value={this.state.theme}
+						choices={[
+							{value: 'business', label: "Business-y"},
+							{value: 'classic',  label: "Classic / French"},
+							{value: 'hip',      label: "Hip"}
+						]}
+						onChange={value => { this.update({theme: value}) }}
 					/>
 				</FormRow>
 
@@ -38,7 +50,7 @@ export default class Form extends React.Component {
 	}
 
 	update(newData) {
-		const {data} = this.props
+		const data = {...this.state}
 		store.setState({form: {...data, ...newData}})
 	}
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {GeneratorForm, Button} from '.'
+import {GeneratorForm, Button} from '../components'
 import * as actions from '../actions'
 import './FormScreen.css'
 

@@ -13,6 +13,11 @@
 .ResultScreen-resultLabel {
 	color: $fg-color-dim;
 	font-size: $app-font-s;
+	margin-bottom: $padding-s;
+}
+
+.ResultScreen-resultName {
+	font-size: $app-font-xl;
 }
 
 .ResultScreen-buttons {
