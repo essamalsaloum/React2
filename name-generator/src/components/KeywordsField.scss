@@ -1,7 +1,9 @@
 @import "./TextField.scss";
 
 .KeywordsField {
+	position: relative;
 	@extend .TextField-input;
+
 	height: auto;
 	min-height: 48px;
 	padding-bottom: 0;
@@ -10,6 +12,10 @@
 	flex-wrap: wrap;
 
 	cursor: text;
+}
+
+.KeywordsField-invalid {
+	@extend .TextField-invalid;
 }
 
 .KeywordsField-keyword {

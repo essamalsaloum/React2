@@ -7,11 +7,13 @@ export default class KeywordsField extends React.Component {
 
 	static propTypes = {
 		value:    PropTypes.arrayOf(PropTypes.string).isRequired,
+		invalid:  PropTypes.bool.isRequired,
 		onChange: PropTypes.func.isRequired
 	}
 
 	static defaultProps = {
 		value:    [],
+		invalid:  false,
 		onChange: () => undefined
 	}
 
@@ -62,12 +64,13 @@ export default class KeywordsField extends React.Component {
 	}
 
 	render() {
-		const {value} = this.props
+		const {value, invalid} = this.props
 
 		return (
 			<div className="KeywordsField" onClick={this.onFieldClick.bind(this)}>
 				{value.map(this.renderKeyword.bind(this))}
 				{this.renderInput()}
+				{invalid && <div className="KeywordsField-invalid"/>}
 			</div>
 		)
 	}

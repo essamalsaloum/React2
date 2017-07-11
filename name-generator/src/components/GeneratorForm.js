@@ -72,7 +72,7 @@ export default class GeneratorForm extends React.Component {
 	update(newData) {
 		const {invalid, data} = this.state
 		store.setState({form: {...data, ...newData}})
-		this.setState({invalid: invalid.subtract(Object.keys(data))})
+		this.setState({invalid: invalid.subtract(Object.keys(newData))})
 	}
 
 	validate() {
@@ -81,6 +81,10 @@ export default class GeneratorForm extends React.Component {
 		let invalid = new Set()
 		if (data.ownName == null || data.ownName.trim().length === 0) {
 			invalid = invalid.add('ownName')
+		}
+
+		if (data.theme === 'hip' && data.keywords.length === 0) {
+			invalid = invalid.add('keywords')
 		}
 
 		this.setState({invalid})

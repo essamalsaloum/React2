@@ -8,7 +8,7 @@ export default class ResultScreen extends React.Component {
 
   componentWillMount() {
     this.subscription = store.subscribe(state => {
-      this.setState(state.result)
+      this.setState(state.result || {})
     })
   }
 

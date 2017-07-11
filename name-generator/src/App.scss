@@ -1,7 +1,7 @@
 @import "./variables";
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   @include flex-column;
 
   background: linear-gradient(to bottom, #A7C5ED, #E3ECF9 70%, #97D2AC);
@@ -12,7 +12,7 @@
 }
 
 .App-main {
-	flex: 1 0 0;
+	flex: 1 0 auto;
 	@include flex-column;
 	margin-top: $padding-l;
 }
