@@ -1,3 +1,5 @@
+import {sample} from '../util'
+
 export default class HipGenerator {
 
 	constructor(form) {
@@ -5,8 +7,10 @@ export default class HipGenerator {
 	}
 
 	async generate() {
+		const keyword = sample(this.form.keywords)
+
 		return {
-			name: this.form.ownName.toUpperCase()
+			name: keyword.toUpperCase()
 		}
 	}
 

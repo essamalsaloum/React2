@@ -3,7 +3,8 @@ export default {
 	result:     null,
 
 	form: {
-		ownName: null,
-		theme:   'business'
+		ownName:  null,
+		theme:    'business',
+		keywords: []
 	}
 }

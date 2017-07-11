@@ -20,4 +20,5 @@
 
 .RadioButtonList-choiceLabel {
   flex: 1 0 'auto';
-  white-space: nowrap; }
+  white-space: nowrap;
+  color: #1A6FD1; }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {TextInput, RadioButtonList} from '.'
+import {TextField, RadioButtonList, KeywordsField} from '.'
 import './GeneratorForm.css'
 import store from '../store'
 
@@ -27,7 +27,7 @@ export default class Form extends React.Component {
 			<div className={`GeneratorForm ${className || ''}`}>
 
 				<FormRow label="1. What is your own name?">
-					<TextInput
+					<TextField
 						value={this.state.ownName || ''}
 						onChange={value => { this.update({ownName: value}) }}
 					/>
@@ -45,6 +45,16 @@ export default class Form extends React.Component {
 					/>
 				</FormRow>
 
+				<FormRow
+					label="3. Enter any keywords for your business"
+					instruction="Separate the keywords with comma's."
+				>
+					<KeywordsField
+						value={this.state.keywords}
+						onChange={value => { this.update({keywords: value}) }}
+					/>
+				</FormRow>
+
 			</div>
 		)
 	}
@@ -56,7 +66,7 @@ export default class Form extends React.Component {
 
 }
 
-export function FormRow({label, children}) {
+export function FormRow({label, instruction, children}) {
 	return (
 		<div className="GeneratorForm-row">
 			<div className="GeneratorForm-row-label">
@@ -65,6 +75,11 @@ export function FormRow({label, children}) {
 			<div className="GeneratorForm-row-content">
 				{children}
 			</div>
+			{instruction &&
+				<div className="GeneratorForm-row-instruction">
+					{instruction}
+				</div>
+			}
 		</div>
 	)
 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import './TextInput.css'
+import './TextField.css'
 
-export default function TextInput(props) {
+export default function TextField(props) {
 	const {onChange, ...other} = props
 
 	return (
 		<input
 			type="text"
-			className="TextInput"
+			className="TextField"
 
 			{...other}
 			onChange={e => { onChange(e.target.value) }}
