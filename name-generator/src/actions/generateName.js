@@ -1,6 +1,6 @@
 import store from '../store'
 import * as generators from '../generators'
-import upperCamelCase from 'uppercamelcase'
+import {pascalCase} from '../util'
 
 export default function generateName() {
 	const {form} = store.state
@@ -17,7 +17,7 @@ function createGenerator(form) {
 	const {theme} = form
 
 	// 'business' => 'BusinessGenerator'
-	const generatorClassName = `${upperCamelCase(theme)}Generator`
+	const generatorClassName = `${pascalCase(theme)}Generator`
 
 	const Generator = generators[generatorClassName]
 	return new Generator(form)
