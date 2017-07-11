@@ -1,5 +1,3 @@
-// Don't look at this file, unless you really want to, menyuch!!
-
 import initialState from './initialState'
 
 class Store {
