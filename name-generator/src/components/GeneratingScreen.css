@@ -1,0 +1,22 @@
+.Screen, .GeneratingScreen {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; }
+
+.Screen-buttons, .GeneratingScreen-buttons {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  align-items: center;
+  justify-content: center; }
+  .Screen-buttons > :not(:last-child), .GeneratingScreen-buttons > :not(:last-child) {
+    margin-right: 24px; }
+
+.GeneratingScreen-main {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }

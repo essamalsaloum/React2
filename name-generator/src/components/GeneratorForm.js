@@ -1,8 +1,13 @@
 import React from 'react'
-import './Form.css'
+import PropTypes from 'prop-types'
+import './GeneratorForm.css'
 import store from '../store'
 
 export default class Form extends React.Component {
+
+	static propTypes = {
+		className: PropTypes.string
+	}
 
 	componentWillMount() {
 		this.subscription = store.subscribe(state => {
@@ -15,8 +20,10 @@ export default class Form extends React.Component {
 	}
 
 	render() {
+		const {className} = this.props
+
 		return (
-			<div className="Form">
+			<div className={`GeneratorForm ${className || ''}`}>
 
 				<FormRow label="1. What is your own name?">
 					<input
@@ -39,11 +46,11 @@ export default class Form extends React.Component {
 
 export function FormRow({label, children}) {
 	return (
-		<div className="Form-row">
-			<div className="Form-row-label">
+		<div className="GeneratorForm-row">
+			<div className="GeneratorForm-row-label">
 				{label}
 			</div>
-			<div className="Form-row-content">
+			<div className="GeneratorForm-row-content">
 				{children}
 			</div>
 		</div>

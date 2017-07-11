@@ -1,21 +1,9 @@
 import React, { Component } from 'react'
+import {Logo, FormScreen, GeneratingScreen, ResultScreen} from '.'
 import store from '../store'
-import {Logo, Form, Button} from '.'
-import * as generators from '../generators'
 import './App.css'
 
 export default class App extends Component {
-
-  generateName() {
-    const {form} = this.state
-    const Generator = generators[form.theme]
-    const generator = new Generator(form)
-    store.setState({generating: true})
-
-    generator.generate().then(result => {
-      store.setState({generating: false, result})
-    })
-  }
 
   componentWillMount() {
     this.subscription = store.subscribe(state => {
@@ -24,26 +12,33 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    this.subscription.remove();
+    this.subscription.remove()
   }
 
   render() {
-    const {form} = this.state
-
     return (
       <div className="App">
-        <Logo/>
-        <Form data={form}/>
+        <div className="App-header">
+          <Logo/>
+        </div>
 
-        <div className="App-buttons">
-          <Button label="GENERATE" onPress={this.onGeneratePress.bind(this)}/>
+        <div className="App-main">
+          {this.renderScreen()}
         </div>
       </div>
     )
   }
 
-  onGeneratePress() {
-    this.generateName()
+  renderScreen() {
+    const {generating, result} = this.state
+
+    if (generating) {
+      return <GeneratingScreen/>
+    } else if (result != null) {
+      return <ResultScreen/>
+    } else {
+      return <FormScreen/>
+    }
   }
 
 }

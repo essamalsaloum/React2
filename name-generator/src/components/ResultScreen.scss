@@ -1,0 +1,20 @@
+@import "../variables";
+@import "../common";
+
+.ResultScreen {
+	@extend .Screen;
+}
+
+.ResultScreen-result {
+	flex: 1 0 0;
+	@include flex-center;
+}
+
+.ResultScreen-resultLabel {
+	color: $fg-color-dim;
+	font-size: $app-font-s;
+}
+
+.ResultScreen-buttons {
+	@extend .Screen-buttons;
+}

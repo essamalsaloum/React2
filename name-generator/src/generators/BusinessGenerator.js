@@ -5,7 +5,9 @@ export default class BusinessGenerator {
 	}
 
 	async generate() {
-		return `${this.form.ownName}'s Company`
+		return {
+			name: `${this.form.ownName}'s Company`
+		}
 	}
 
 }

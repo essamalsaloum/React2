@@ -8,8 +8,9 @@
   font: 24px "Alpha Smart", monospace;
   color: black; }
 
-.App-buttons {
+.App-main {
+  flex: 1 0 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   margin-top: 32px; }

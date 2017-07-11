@@ -1,10 +1,14 @@
 import React from 'react'
-import store from '../store'
 import './Button.css'
 
-export default function IncreaseButton({label, onClick}) {
+export default function Button({label, disabled, onClick}) {
+	let className = 'Button'
+	if (disabled) {
+		className += ' Button-disabled'
+	}
+
 	return (
-		<button className="Button" onClick={onClick}>
+		<button className={className} onClick={disabled ? null : onClick}>
 			<span className="Button-label">{label}</span>
 		</button>
 	)

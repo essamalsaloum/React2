@@ -1,1 +1,1 @@
-export {default as business} from './BusinessGenerator'
+export {default as BusinessGenerator} from './BusinessGenerator'

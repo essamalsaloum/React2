@@ -11,7 +11,8 @@
   color: $fg-color;
 }
 
-.App-buttons {
-  @include flex-row;
-  margin-top: $padding-l;
+.App-main {
+	flex: 1 0 0;
+	@include flex-column;
+	margin-top: $padding-l;
 }

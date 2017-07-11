@@ -3,6 +3,7 @@ export default {
 	result:     null,
 
 	form: {
-		ownName: null
+		ownName: null,
+		theme:   'business'
 	}
 }
