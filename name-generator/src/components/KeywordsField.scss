@@ -1,7 +1,7 @@
 @import "./TextField.scss";
 
 .KeywordsField {
-	@extend .TextField;
+	@extend .TextField-input;
 	height: auto;
 	min-height: 48px;
 	padding-bottom: 0;
@@ -47,6 +47,9 @@
 	color: white;
 }
 
+.KeywordsField-keyword:hover .KeywordsField-keywordRemoveButton {
+	color: $fg-color-negative;
+}
 
 .KeywordsField input {
 	width: auto;

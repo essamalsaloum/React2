@@ -13,6 +13,10 @@ $padding-button: 16px 24px;
 $fg-color: black;
 $fg-color-dim: #777;
 $fg-color-accent: #1A6FD1;
+$fg-color-error: #D0021B;
+
+$fg-color-positive: #1A6FD1;
+$fg-color-negative: #D0021B;
 
 $bg-color-input: white;
 $fg-color-input: #1A6FD1;
@@ -31,7 +35,7 @@ $app-font-family: "Alpha Smart", monospace;
 $app-font-s:  16px;
 $app-font-m:  24px;
 $app-font-l:  32px;
-$app-font-xl: 48px;
+$app-font-xl: 64px;
 
 $app-font: $app-font-m $app-font-family;
 

@@ -1,6 +1,11 @@
 @import "../variables";
+@import "../common";
 
 .TextField {
+	position: relative;
+}
+
+.TextField-input {
 	height:  48px;
 	width:   100%;
 	padding: $padding-input;
@@ -10,4 +15,13 @@
 
 	border:     none;
 	box-shadow: $shadow-input;
+}
+
+.TextField-invalid {
+	position: absolute;
+	top:      0;
+	bottom:   0;
+	right:    $padding-xs;
+
+	@extend %Field-invalid;
 }

@@ -2,7 +2,7 @@
 @import "../common";
 
 .GeneratingScreen {
-	@extend .Screen;
+	@extend %Screen;
 }
 
 .GeneratingScreen-main {
@@ -11,5 +11,5 @@
 }
 
 .GeneratingScreen-buttons {
-	@extend .Screen-buttons;
+	@extend %Screen-buttons;
 }

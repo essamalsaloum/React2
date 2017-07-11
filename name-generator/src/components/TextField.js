@@ -2,15 +2,19 @@ import React from 'react'
 import './TextField.css'
 
 export default function TextField(props) {
-	const {onChange, ...other} = props
+	const {onChange, invalid, ...other} = props
 
 	return (
-		<input
-			type="text"
-			className="TextField"
+		<div className="TextField">
+			<input
+				type="text"
+				className="TextField-input"
 
-			{...other}
-			onChange={e => { onChange(e.target.value) }}
-		/>
+				{...other}
+				onChange={e => { onChange(e.target.value) }}
+			/>
+
+			{invalid && <div className="TextField-invalid"/>}
+		</div>
 	)
 }

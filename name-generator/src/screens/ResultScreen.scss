@@ -2,12 +2,13 @@
 @import "../common";
 
 .ResultScreen {
-	@extend .Screen;
+	@extend %Screen;
 }
 
 .ResultScreen-result {
 	flex: 1 0 0;
 	@include flex-center;
+	text-align: center;
 }
 
 .ResultScreen-resultLabel {
@@ -21,5 +22,5 @@
 }
 
 .ResultScreen-buttons {
-	@extend .Screen-buttons;
+	@extend %Screen-buttons;
 }

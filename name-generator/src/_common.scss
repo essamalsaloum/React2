@@ -1,11 +1,11 @@
 @import "./variables";
 
-.Screen {
+%Screen {
 	flex: 1 0 0;
 	@include flex-column;
 }
 
-.Screen-buttons {
+%Screen-buttons {
   margin-top: $padding-l;
 
 	@include flex-row;
@@ -14,5 +14,15 @@
 
 	> :not(:last-child) {
 		margin-right: $padding-m;
+	}
+}
+
+%Field-invalid {
+	@include flex-center;
+
+	&::after {
+		display: block;
+		content: 'x';
+		color:   $fg-color-error;
 	}
 }

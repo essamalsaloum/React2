@@ -2,7 +2,7 @@
 @import "../common";
 
 .FormScreen {
-	@extend .Screen;
+	@extend %Screen;
 }
 
 .FormScreen-form {
@@ -10,5 +10,5 @@
 }
 
 .FormScreen-buttons {
-	@extend .Screen-buttons;
+	@extend %Screen-buttons;
 }

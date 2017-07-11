@@ -5,10 +5,20 @@ import './FormScreen.css'
 
 export default class FormScreen extends Component {
 
+  generateName() {
+    if (this.form == null) { return }
+    if (!this.form.validate()) { return }
+
+    actions.generateName()
+  }
+
   render() {
     return (
       <div className="FormScreen">
-      	<GeneratorForm className="FormScreen-form"/>
+      	<GeneratorForm
+          className="FormScreen-form"
+          ref={el => { this.form = el }}
+        />
 
         <div className="FormScreen-buttons">
 	        <Button
@@ -21,7 +31,7 @@ export default class FormScreen extends Component {
   }
 
   onGenerateClick() {
-    actions.generateName()
+    this.generateName()
   }
 
 }

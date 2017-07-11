@@ -3,16 +3,22 @@ import PropTypes from 'prop-types'
 import {TextField, RadioButtonList, KeywordsField} from '.'
 import './GeneratorForm.css'
 import store from '../store'
+import {Set} from 'immutable'
 
-export default class Form extends React.Component {
+export default class GeneratorForm extends React.Component {
 
 	static propTypes = {
 		className: PropTypes.string
 	}
 
+	state = {
+		data:    {},
+		invalid: new Set()
+	}
+
 	componentWillMount() {
 		this.subscription = store.subscribe(state => {
-			this.setState(state.form)
+			this.setState({data: state.form})
 		})
 	}
 
@@ -22,25 +28,28 @@ export default class Form extends React.Component {
 
 	render() {
 		const {className} = this.props
+		const {invalid, data} = this.state
 
 		return (
 			<div className={`GeneratorForm ${className || ''}`}>
 
 				<FormRow label="1. What is your own name?">
 					<TextField
-						value={this.state.ownName || ''}
+						value={data.ownName || ''}
 						onChange={value => { this.update({ownName: value}) }}
+						invalid={invalid.has('ownName')}
 					/>
 				</FormRow>
 
 				<FormRow label="2. Choose a theme">
 					<RadioButtonList
-						value={this.state.theme}
 						choices={[
 							{value: 'business', label: "Business-y"},
 							{value: 'classic',  label: "Classic / French"},
 							{value: 'hip',      label: "Hip"}
 						]}
+						value={data.theme}
+						invalid={invalid.has('theme')}
 						onChange={value => { this.update({theme: value}) }}
 					/>
 				</FormRow>
@@ -50,7 +59,8 @@ export default class Form extends React.Component {
 					instruction="Separate the keywords with comma's."
 				>
 					<KeywordsField
-						value={this.state.keywords}
+						value={data.keywords}
+						invalid={invalid.has('keywords')}
 						onChange={value => { this.update({keywords: value}) }}
 					/>
 				</FormRow>
@@ -60,8 +70,21 @@ export default class Form extends React.Component {
 	}
 
 	update(newData) {
-		const data = {...this.state}
+		const {invalid, data} = this.state
 		store.setState({form: {...data, ...newData}})
+		this.setState({invalid: invalid.subtract(Object.keys(data))})
+	}
+
+	validate() {
+		const {data} = this.state
+
+		let invalid = new Set()
+		if (data.ownName == null || data.ownName.trim().length === 0) {
+			invalid = invalid.add('ownName')
+		}
+
+		this.setState({invalid})
+		return invalid.size === 0
 	}
 
 }
