@@ -1,8 +1,15 @@
 export default {
 	form: {
 		name:  '',
-		email: ''
+		email: '',
+	  	theme: 'business'
 	},
 
-	generating: false
+  	result: {
+		companyName: 'test'
+	},
+
+	generating: false,
+    companyName: '',
+  	pageName: 'form-screen'
 }
