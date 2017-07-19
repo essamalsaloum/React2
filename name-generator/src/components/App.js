@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import Header from './Header'
-import GeneratorForm from './GeneratorForm'
-import Button from './Button'
 import store from '../store'
 import './App.css'
+import FormScreen from '../screens/FormScreen'
+import ResultScreen from '../screens/ResultScreen'
 
 class App extends Component {
 
@@ -18,24 +18,27 @@ class App extends Component {
   }
 
   render() {
+
+    let screen;
+    switch (this.state.pageName) {
+      case 'result-screen':
+        screen = (<ResultScreen/>)
+        break;
+      default:
+        screen = (<FormScreen/>)
+        // default is 'form-screen'
+
+
+    }
+
     return (
       <div className="App">
         <Header/>
-
-        <div className="App-generatorForm">
-          <GeneratorForm/>
-        </div>
-
-        <div className="App-generateButton">
-          <Button label="GENERATE" onClick={this.onGenerateClick.bind(this)}/>
-        </div>
+        {screen}
       </div>
     )
   }
 
-  onGenerateClick() {
-    alert('Generate')
-  }
 
 }
 
