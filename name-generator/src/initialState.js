@@ -1,3 +1,10 @@
 export default {
-	counter: 1
+	generating: false,
+	result:     null,
+
+	form: {
+		ownName:  null,
+		theme:    'business',
+		keywords: []
+	}
 }
